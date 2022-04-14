@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <demo_index_index>
+        <reference name="content">
+            <block type="demo/demo" name="template_file" template="demo/demo.phtml"></block>
+        </reference>
+    </demo_index_index>
+    <demo_index_editdata>
+        <reference name="content">
+            <block type="demo/demo" name="template_file" template="demo/edit.phtml"></block>
+        </reference>
+    </demo_index_editdata>
+</layout>

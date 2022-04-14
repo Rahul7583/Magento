@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<!-- moduleName_ControllerName_ActionName -->
+    <rahul_index_grid>
+        <reference name="root">
+            <action method="setTemplate">                  
+            	<template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="rahul/rahul" name="hello" template="rahul/form.phtml"/>
+        </reference>
+    </rahul_index_grid>
+</layout>

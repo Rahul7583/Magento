@@ -1,0 +1,89 @@
+<form method="POST" action="<?php echo $this->getUrl('rahul/index/save'); ?>">
+
+  <fieldset>
+    <legend>Vendor Information:</legend>
+    First Name:<br>
+    <input type="text" name="firstName" minlength="3" placeholder="Enter Name" required>
+    <br>
+    Last Name:<br>
+    <input type="text" name="lastName" minlength="3" placeholder="Enter Name" required>
+    <br>
+    Email:<br>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br>
+    Mobile No.:<br>
+    <input type="number" name="mobile" min="1" placeholder="Enter Mobile No." required>
+    <br><br>
+     status:<br>
+         <select name="status">
+         <option value="1">Enable</option>
+         <option value="0">Disable</option>
+         </select>
+    <br>
+    <br>
+     <input type="submit" value="Submit">    
+   </fieldset>   
+</form>
+
+<br>
+<table>
+    <tr>
+        <th>VendorId</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+<?php
+$collection = Mage::getModel('rahul/rahul')->getCollection();
+?>
+<div id="table_id">
+      <table width="80%" border="1px" style="text-align:center">
+<?php
+
+foreach($collection as $collect)
+{
+    {
+    ?>
+    
+
+    <tr>
+        <td>
+                <?php echo $collect->id; ?>
+        </td>   
+        <td>
+                <?php echo $collect->firstname; ?>
+        </td>
+        <td>
+                <?php echo $collect->lastname; ?>
+        </td>
+        <td>
+                <?php echo $collect->email; ?>
+        </td>
+                <td>
+                <?php echo $collect->mobile; ?>
+        </td>
+                <td>
+                <?php echo $collect->status; ?>
+        </td>
+        
+        <td>
+                <a href="<?php echo $this->getBaseUrl().'rahul/index/deletedata?id='.$collect->id ?>">
+                <?php echo $this->__('DELETE'); ?></a>
+        </td>
+        <td>
+                <a href="<?php echo $this->getBaseUrl().'rahul/index/editData?id='.$collect->id ?>">
+                <?php echo $this->__('EDIT'); ?></a>
+        </td>
+    </tr>
+<?php 
+    }
+}
+
+?>
+</table>
+</div>

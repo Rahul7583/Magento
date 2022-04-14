@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <rahul_index_index>
+        <reference name="content">
+            <block type="rahul/rahul" name="template_file" template="rahul/rahul.phtml"></block>
+        </reference>
+    </rahul_index_index>
+    <rahul_index_editdata>
+        <reference name="content">
+            <block type="rahul/rahul" name="template_file" template="rahul/edit.phtml"></block>
+        </reference>
+    </rahul_index_editdata>
+</layout>

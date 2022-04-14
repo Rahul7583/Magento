@@ -1,0 +1,31 @@
+<?php
+    $models = Mage::getModel('rahul/rahul')->getCollection();
+    $edit = Mage::getModel('rahul/rahul')->load($_GET['id']); 
+?>
+
+<form method="POST" action="<?php echo $this->getBaseUrl().'rahul/index/edit?id='.$edit->id ?>">
+
+  <fieldset>
+    <legend>Vendor Information:</legend>
+    First Name:<br>
+    <input type="text" name="firstName" minlength="3" value="<?php echo $edit->firstname; ?>" placeholder="Enter Name" required>
+    <br>
+    Last Name:<br>
+    <input type="text" name="lastName" minlength="3" value="<?php echo $edit->lastname; ?>" placeholder="Enter Name" required>
+    <br>
+    Email:<br>
+    <input type="email" name="email" value="<?php echo $edit->email; ?>" placeholder="Enter Email" required>
+    <br>
+    Mobile No.:<br>
+    <input type="number" name="mobile" min="1" value="<?php echo $edit->mobile; ?>" placeholder="Enter Mobile No." required>
+    <br><br>
+     status:<br>
+        <select name="status">              
+        <option value='0' <?php echo (0 == $edit->status) ? 'selected' : ''; ?>>Disable</option>
+        <option value='1' <?php echo (1 == $edit->status) ? 'selected' : ''; ?>>Enable</option>
+        </select>
+    <br>
+    <br>
+     <input type="submit" value="Update">    
+   </fieldset>   
+</form>
