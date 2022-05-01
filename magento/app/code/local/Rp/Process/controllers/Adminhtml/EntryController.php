@@ -1,0 +1,79 @@
+<?php 
+class Rp_Process_Adminhtml_EntryController extends Mage_Adminhtml_Controller_Action
+{
+	public function indexAction()
+	{
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	public function editAction()
+    {
+       $this->loadLayout();
+
+        $id =  $this->getRequest()->getParam('id');   
+        $model = Mage::getModel('process/process_entry');
+
+        if ($id) 
+        {
+            $model->load($id);                   
+            if(!$model->getId()) 
+            {
+                $this->_redirect('*/*/index');
+                return;
+            }
+        }
+
+        $this->_title($model->getId() ? $this->__('Edit process') : $this->__('New process'));
+        Mage::register('current_entry', $model);
+        $this->renderLayout();
+    }  
+
+    public function newAction()
+   	{
+        $this->_forward('edit');
+   	}
+
+   	 public function saveAction()
+    {
+    	// code...
+    	if ($data = $this->getRequest()->getPost()) 
+    	{
+           try 
+           {
+               $model = Mage::getModel('process/process_entry');
+               $model->setData($data)->setId($this->getRequest()->getParam('id'));
+               
+               $model->save();
+               $id = $model->getId();
+              
+              $this->_redirect('*/*/index');
+           } 
+           catch (Exception $e) 
+           {
+               $this->_redirect('*/*/edit', array(
+                   'id' => $this->getRequest()->getParam('id')
+               ));
+           }
+           return;
+        }
+    }
+
+     public function deleteAction()
+   {
+       if($id = $this->getRequest()->getParam('id')) 
+       {
+           try 
+           {
+               Mage::getModel('process/process_entry')->load($id)->delete();
+           } 
+           catch (Exception $e) 
+           {
+               $this->_redirect('*/*/edit', array('id' => $id));
+           }
+       }
+       $this->_redirect('*/*/index');
+   }
+
+
+}
