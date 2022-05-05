@@ -25,11 +25,16 @@
 		<reference name="left">
 			<block type="process/adminhtml_process_edit_tabs" name="process_tabs"/>
 		</reference>
-		<!-- <reference name="js">
-			<block type="adminhtml/catalog_product_edit_js" template="catalog/product/js.phtml" name="catalog_product_js"></block>
-            <block type="core/template" template="catalog/wysiwyg/js.phtml"/>
-		</reference> -->
 	</process_adminhtml_process_edit>
+
+	<process_adminhtml_column_edit>
+		<reference name="content">
+			<block type="process/adminhtml_column_edit" name="column_edit"/>
+		</reference>
+		<reference name="left">
+			<block type="process/adminhtml_column_edit_tabs" name="column_tabs"/>
+		</reference>
+	</process_adminhtml_column_edit>
 
 	<process_adminhtml_group_edit>
 		<reference name="content">
@@ -51,31 +56,8 @@
 		<reference name="left">
 			<block type="process/adminhtml_entry_edit_tabs" name="entry_tabs"/>
 		</reference>
-		<!-- <reference name="js">
-			<block type="adminhtml/catalog_product_edit_js" template="catalog/product/js.phtml" name="catalog_product_js"></block>
-            <block type="core/template" template="catalog/wysiwyg/js.phtml"/>
-		</reference> -->
 	</process_adminhtml_entry_edit>
 
-	<!-- <process_adminhtml_upload_index>
-        <reference name="content">
-            <block type="process/adminhtml_process" name="process"></block>
-        </reference>
-    </process_adminhtml_upload_index> -->
-	
-	<!-- <process_adminhtml_upload_uploadfile>
-		<reference name="content">
-			<block type="process/adminhtml_process_upload_edit" name="procee_upload_edit"/>
-		</reference>
-		<reference name="left">
-			<block type="process/adminhtml_process_upload_edit_tabs" name="procee_upload_edit_tabs"/>
-		</reference>
-		  <reference name="js">
-			<block type="adminhtml/catalog_product_upload_js" template="catalog/product/js.phtml" name="catalog_product_js"></block>
-            <block type="core/template" template="catalog/wysiwyg/js.phtml"/>
-		</reference>  
-	</process_adminhtml_upload_uploadfile> -->
- 
 	<process_adminhtml_upload_uploadfile>
         <reference name="content">
             <block type="process/adminhtml_process_upload_edit" name="process_upload_edit"></block>
@@ -85,5 +67,9 @@
         </reference>
     </process_adminhtml_upload_uploadfile>
 
-
+    <process_adminhtml_upload_execute>
+    	<reference name="content">
+    		<block type="process/adminhtml_process_upload_progress" name="process_execute"></block>
+    	</reference>
+    </process_adminhtml_upload_execute>
 </layout>

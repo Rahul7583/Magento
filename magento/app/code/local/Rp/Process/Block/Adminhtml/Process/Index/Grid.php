@@ -59,6 +59,11 @@ class Rp_Process_Block_Adminhtml_Process_Index_Grid extends Mage_Adminhtml_Block
 				'index' => 'request_interval'
 		));
 
+		$this->addColumn('request_model', array(
+				'header' => Mage::helper('process')->__('Request Model'),
+				'index' => 'request_model'
+		));
+
 		$this->addColumn('file_name', array(
 				'header' => Mage::helper('process')->__('File Name'),
 				'index' => 'file_name'
@@ -79,6 +84,63 @@ class Rp_Process_Block_Adminhtml_Process_Index_Grid extends Mage_Adminhtml_Block
                     array(
                         'caption'   => Mage::helper('process')->__('Upload'),
                         'url'       => array('base'=> '*/adminhtml_upload/uploadfile'),
+                        'field'     => 'id'
+                    )
+                ),
+                'filter'    => false,
+                'sortable'  => false,
+                'index'     => 'stores',
+                'is_system' => true,
+        ));
+
+        $this->addColumn('Verify',
+            array(
+                'header'    =>  Mage::helper('process')->__('Action'),
+                'width'     => '100',
+                'type'      => 'action',
+                'getter'    => 'getId',
+                'actions'   => array(
+                    array(
+                        'caption'   => Mage::helper('process')->__('Varify'),
+                        'url'       => array('base'=> '*/adminhtml_upload/verify'),
+                        'field'     => 'id'
+                    )
+                ),
+                'filter'    => false,
+                'sortable'  => false,
+                'index'     => 'stores',
+                'is_system' => true,
+        ));
+
+        $this->addColumn('Execute',
+            array(
+                'header'    =>  Mage::helper('process')->__('Action'),
+                'width'     => '100',
+                'type'      => 'action',
+                'getter'    => 'getId',
+                'actions'   => array(
+                    array(
+                        'caption'   => Mage::helper('process')->__('Execute'),
+                        'url'       => array('base'=> '*/adminhtml_upload/execute'),
+                        'field'     => 'id'
+                    )
+                ),
+                'filter'    => false,
+                'sortable'  => false,
+                'index'     => 'stores',
+                'is_system' => true,
+        ));
+
+        $this->addColumn('Download',
+            array(
+                'header'    =>  Mage::helper('process')->__('Action'),
+                'width'     => '100',
+                'type'      => 'action',
+                'getter'    => 'getId',
+                'actions'   => array(
+                    array(
+                        'caption'   => Mage::helper('process')->__('Download'),
+                        'url'       => array('base'=> '*/adminhtml_upload/export'),
                         'field'     => 'id'
                     )
                 ),
