@@ -41,7 +41,6 @@ class Rp_Process_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
 
     public function saveAction()
     {
-        // code...
         if ($data = $this->getRequest()->getPost()) 
         {
            try 

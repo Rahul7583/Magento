@@ -3,7 +3,6 @@ class Rp_Process_Block_Adminhtml_Column_Edit extends Mage_Adminhtml_Block_Widget
 {
     protected function _construct()
     {
-        // code...
         $this->_blockGroup = 'process';
         $this->_controller = 'adminhtml_column';
     }
